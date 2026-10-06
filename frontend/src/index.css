@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-slate-50 text-slate-900 transition-colors duration-200 antialiased selection:bg-brand-500 selection:text-white;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100 selection:bg-brand-500 selection:text-white;
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600;
+}
+
+/* Glassmorphism effects */
+.glass-panel {
+  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 shadow-sm;
+}
+
+.glass-panel-hover {
+  @apply glass-panel transition-all duration-200 hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5;
+}
+
+/* Audio visualizer bar animation */
+@keyframes soundwave {
+  0%, 100% { height: 6px; }
+  50% { height: 28px; }
+}
+
+.animate-soundwave {
+  animation: soundwave 1.2s ease-in-out infinite;
+}
